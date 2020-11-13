@@ -2,6 +2,7 @@ const express = require('express')
 
 require('./db/mongoose')
 const taskRouter = require('./routers/task')
+const songRouter = require('./routers/user')
 
 const port = process.env.PORT
 
@@ -38,8 +39,6 @@ app.get('/cantos', (req, res) => {
   res.render('cantos', {titulo: 'Cantos'})
 })
 
-
-
 app.get('/', (req, res) => {
   const blogs = [
     { title: 'Pastel de zanahoria', snippet: 'Lorem ipsum dolor sit amet consectetur' },
@@ -65,24 +64,13 @@ app.get('/nov', (req, res) => {
   res.render('novedades', {})
 })
 
-app.post('/songs', (req, res)=>{
 
-})
-app.get('/songs', (req, res)=>{
-  
-})
-app.get('/songs/:id', (req, res)=>{
-  
-})
-app.patch('/songs/:id', (req, res)=>{
-  
-})
-app.delete('/songs/:id', (req, res)=>{
-
-})
 
 app.use(express.json())
 app.use('/api', taskRouter)
+app.use('/api', userRouter)
+
+
 
 // 404 page
 app.use((req, res) => {
