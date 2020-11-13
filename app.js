@@ -67,7 +67,8 @@ app.get('/nov', (req, res) => {
 
 
 app.use(express.json())
-app.use('/api', taskRouter, userRouter)
+app.use('/api', taskRouter)
+app.use('/api', userRouter)
 
 
 
