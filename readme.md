@@ -7,7 +7,7 @@ resource: song
 **U** pdate
 **D** elete
 
-**POST /songs**        // crear una song
+**POST /songs**        // create a song
 ```javascript
 {
     "titulo": "Times go by",
@@ -16,18 +16,18 @@ resource: song
 }
 ```
 
-**GET /songs**         // leer las songs
+**GET /songs**         // read songs
 
-**GET /songs/:id**     // leer la song :id
+**GET /songs/:id**     // read the song :id
 
-**PATCH /songs/:id**   // actualizar la song :id
+**PATCH /songs/:id**   // update the song :id
 ```javascript
 {
     "artista": "Ray Conniff"
 }
 ```
 
-**PUT   /songs/:id**   // actualizar la song :id
+**PUT   /songs/:id**   // update the song :id
 ```javscript
 {
     "titulo": "Bésame mucho",
@@ -36,4 +36,4 @@ resource: song
 }
 ```
 
-**DELETE /songs/:id**  // borrar la song :id
+**DELETE /songs/:id**  // delete the song :id
