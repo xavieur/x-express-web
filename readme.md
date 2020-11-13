@@ -3,21 +3,21 @@
 resource: song
 
 **C** reate
-
 **R** ead
-
 **U** pdate
-
 **D** elete
 
 **POST /songs**        // crear una song
+```javascript
 {
     "titulo": "Times go by",
     "artista": "Madona",
     "año": "199"
 }
+```
 
 **GET /songs**         // leer las songs
+
 **GET /songs/:id**     // leer la song :id
 
 **PATCH /songs/:id**   // actualizar la song :id
