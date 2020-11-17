@@ -1,8 +1,8 @@
 const express = require('express')
 
-require('./db/mongoose')
-const taskRouter = require('./routers/task')
-const userRouter = require('./routers/user')
+require('../../db/mongoose')
+const taskRouter = require('../../routers/task')
+const userRouter = require('../../routers/user')
 
 console.log(process.env.MI_PEZ_FAVORITO)
 
@@ -30,17 +30,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.get('/canciones', (req, res) => {
-  res.render('canciones', {titulo: 'Canciones'})
-})
-app.get('/canticos', (req, res) => {
-  res.render('canticos', {titulo: 'Cánticos'})
-})
-app.get('/cantos', (req, res) => {
-  res.render('cantos', {titulo: 'Cantos'})
-})
-
 app.get('/', (req, res) => {
   const blogs = [
     { title: 'Pastel de zanahoria', snippet: 'Lorem ipsum dolor sit amet consectetur' },
@@ -58,21 +47,9 @@ app.get('/blogs/create', (req, res) => {
   res.render('create', { title: 'Create a new blog' });
 });
 
-app.get('/number', (req, res) => {
-  res.render('numeros', {})
-})
-
-app.get('/nov', (req, res) => {
-  res.render('novedades', {})
-})
-
-
-
 app.use(express.json())
 app.use('/api', taskRouter)
 app.use('/api', userRouter)
-
-
 
 // 404 page
 app.use((req, res) => {
