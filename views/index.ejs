@@ -6,41 +6,17 @@
 
   <div class="blogs content">
     <h2>All Blogs</h2>
-
-    <script>
-      const blogs = [
-    { title: 'Pastel de zanahoria', snippet: 'Lorem ipsum dolor sit amet consectetur' },
-    { title: 'Zhulien de champiñones', snippet: 'Lorem ipsum dolor sit amet consectetur' },
-    { title: 'Shakshuka', snippet: 'Lorem ipsum dolor sit amet consectetur' }]
-
-    if(blogs.length>0){
-      blogs.forEach((blog)=>{
-        console.log(blog.title)
-        console.log(blog.snippet)
-      })
-    }
-    </script>
-
-<% if(blogs.length>0){
-  blogs.forEach((blog)=>{ %>
-    <h3><%= blog.title %></h3>
-    <p><%= blog.snippet %></p>
-<% })
-} %>
-
-
-<br><br><br>
     <% if (blogs.length > 0) { %>
-      <% blogs.forEach(blog => { %>
+    <% blogs.forEach(blog => { %>
 
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p>
+    <h3 class="title"><%= blog.title %></h3>
+    <p class="snippet"><%= blog.snippet %></p>
 
-      <% }) %>
+    <% }) %>
     <% } else { %>
-      <p>There are no blogs to display...</p>
+    <p>There are no blogs to display...</p>
     <% } %>
-    
+
   </div>
 
   <%- include("./partials/footer.ejs") %>

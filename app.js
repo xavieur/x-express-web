@@ -4,6 +4,8 @@ require('./db/mongoose')
 const taskRouter = require('./routers/task')
 const userRouter = require('./routers/user')
 
+console.log(process.env.MI_PEZ_FAVORITO)
+
 const port = process.env.PORT
 
 // express app
