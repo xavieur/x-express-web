@@ -46,8 +46,18 @@ app.get('/blogs/create', (req, res) => {
   res.render('blog-create', { title: 'Create a new blog' });
 });
 
+app.get('/tests', async (req, res) => {
+    try {
+        const tests = await Test.find({})
+        res.render('tests', { title: 'List of tests', tests });
+      } catch (e) {
+
+        res.render('tests', { title: 'List of tests', tests: [] });
+    }
+});
+
 app.get('/test/create', (req, res) => {
-  res.render('test-create', { title: 'Create a new blog' });
+  res.render('test-create', { title: 'Create a new test' });
 });
 
 app.use(express.json())
