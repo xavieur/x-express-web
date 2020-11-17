@@ -2,6 +2,7 @@ const form = document.getElementById('test-form')
 
 form.addEventListener('submit', (e) => {
     e.preventDefault
+    debugger
     const data = {
         question: e.target.elements.question.value,
         answer1: e.target.elements.answer1.value,
