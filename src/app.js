@@ -3,8 +3,7 @@ const express = require('express')
 require('../db/mongoose')
 const taskRouter = require('../routers/task')
 const userRouter = require('../routers/user')
-
-console.log(process.env.MI_PEZ_FAVORITO)
+const testRouter = require('../routers/test')
 
 const port = process.env.PORT
 
@@ -44,12 +43,17 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/blogs/create', (req, res) => {
-  res.render('create', { title: 'Create a new blog' });
+  res.render('blog-create', { title: 'Create a new blog' });
+});
+
+app.get('/test/create', (req, res) => {
+  res.render('test-create', { title: 'Create a new blog' });
 });
 
 app.use(express.json())
 app.use('/api', taskRouter)
 app.use('/api', userRouter)
+app.use('/api', testRouter)
 
 // 404 page
 app.use((req, res) => {
