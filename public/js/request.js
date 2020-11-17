@@ -1,6 +1,6 @@
 const form = document.getElementById('test-form')
 
-form.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault
     const data = {
         question: e.target.elements.question.value,
