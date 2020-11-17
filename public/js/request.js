@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
         answer4: e.target.elements.answer4.value
     }
 
-    axios.post('/api/tests', data)
+    axios.post('/api/tests', JSON.stringify(data))
 /*     axios({
         method: 'post',
         url: '/api/tests',
