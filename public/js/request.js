@@ -11,8 +11,9 @@ form.addEventListener('submit', (e) => {
         answer3: e.target.elements.answer3.value,
         answer4: e.target.elements.answer4.value
     }
-
+    console.log(data)
     const dataJSON = JSON.stringify(data)
+    console.log(dataJSON)
     axios.post('/api/tests', dataJSON)
 /*     axios({
         method: 'post',
