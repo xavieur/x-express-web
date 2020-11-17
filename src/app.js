@@ -1,8 +1,8 @@
 const express = require('express')
 
-require('../../db/mongoose')
-const taskRouter = require('../../routers/task')
-const userRouter = require('../../routers/user')
+require('../db/mongoose')
+const taskRouter = require('../routers/task')
+const userRouter = require('../routers/user')
 
 console.log(process.env.MI_PEZ_FAVORITO)
 
