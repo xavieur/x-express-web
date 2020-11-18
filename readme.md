@@ -28,7 +28,7 @@ resource: song
 ```
 
 **PUT   /songs/:id**   // update the song :id
-```javscript
+```javascript
 {
     "titulo": "Bésame mucho",
     "artista": "Ray Conniff",
@@ -37,3 +37,4 @@ resource: song
 ```
 
 **DELETE /songs/:id**  // delete the song :id
+

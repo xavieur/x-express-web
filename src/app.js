@@ -61,6 +61,7 @@ app.get('/test/create', (req, res) => {
 });
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use('/api', taskRouter)
 app.use('/api', userRouter)
 app.use('/api', testRouter)
