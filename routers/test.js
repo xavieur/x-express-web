@@ -7,7 +7,7 @@ router.post('/tests', async (req, res) => {
 
     try {
         await test.save()
-        res.status(201).send(test)
+        res.redirect('/tests')
     } catch (e) {
         res.status(400).send(e)
     }
