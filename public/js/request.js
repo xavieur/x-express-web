@@ -1,6 +1,6 @@
 const form = document.getElementById('test-form')
 
-form.addEventListener('submit', (e) => {
+/* form.addEventListener('submit', (e) => {
     e.preventDefault
     debugger
     console.log(e.target.elements)
@@ -14,9 +14,4 @@ form.addEventListener('submit', (e) => {
     console.log(data)
     console.log(data)
     axios.post('/api/tests', data)
-/*     axios({
-        method: 'post',
-        url: '/api/tests',
-        data
-    }) */
-})
+}) */

@@ -49,7 +49,7 @@ app.get('/blogs/create', (req, res) => {
 app.get('/tests', async (req, res) => {
     try {
         const tests = await Test.find({})
-        res.render('tests', { title: 'List of tests', tests });
+        res.render('tests', { title: 'List of tests', tests: tests });
       } catch (e) {
 
         res.render('tests', { title: 'List of tests', tests: [] });
