@@ -1,9 +1,12 @@
 const express = require('express')
+const morgan=require('morgan')
 
 require('../db/mongoose')
 const taskRouter = require('../routers/task')
 const userRouter = require('../routers/user')
 const testRouter = require('../routers/test')
+
+const Test = require('../models/test')
 
 const port = process.env.PORT
 
@@ -20,6 +23,8 @@ app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }))
+app.use(morgan('dev'))
 
 app.use((req, res, next) => {
   console.log('new request made:');
@@ -51,7 +56,6 @@ app.get('/tests', async (req, res) => {
         const tests = await Test.find({})
         res.render('tests', { title: 'List of tests', tests: tests });
       } catch (e) {
-
         res.render('tests', { title: 'List of tests', tests: [] });
     }
 });
@@ -61,7 +65,6 @@ app.get('/test/create', (req, res) => {
 });
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 app.use('/api', taskRouter)
 app.use('/api', userRouter)
 app.use('/api', testRouter)
