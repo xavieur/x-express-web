@@ -19,11 +19,11 @@ form.addEventListener('submit', async (e)=>{
     console.log(e.target)
     e.preventDefault()
     const resultado = await axios.post('https://x-express-web.herokuapp.com/api/tests', {
-        question: e.target.elements.question,
-        answer1: e.target.elements.answer1,
-        answer2: e.target.elements.answer2,
-        answer3: e.target.elements.answer3,
-        answer4: e.target.elements.answer4
+        question: e.target.elements.question.value,
+        answer1: e.target.elements.answer1.value,
+        answer2: e.target.elements.answer2.value,
+        answer3: e.target.elements.answer3.value,
+        answer4: e.target.elements.answer4.value
     })
     console.log(resultado)
 })
