@@ -116,9 +116,9 @@ main{
     #read,
     #update,
     #delete {
-        display: block;
+        display: inline-block;
         padding: 16px;
-        margin: 8px;
+        margin: 32px;
         background-color: lightcoral;
         color: black;
     }
