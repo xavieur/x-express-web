@@ -16,6 +16,7 @@ const form = document.querySelector('#test-form')
 }) */
 
 form.addEventListener('submit', async (e)=>{
+    console.log(e.target)
     e.preventDefault()
     const resultado = await axios.post('https://x-express-web.herokuapp.com/api/tests', {
         question: e.target.elements.question,
