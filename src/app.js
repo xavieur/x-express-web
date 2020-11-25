@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
     { title: 'Zhulien de champiñones', snippet: 'Lorem ipsum dolor sit amet consectetur' },
     { title: 'Shakshuka', snippet: 'Lorem ipsum dolor sit amet consectetur' },
   ];
-  // res.render('index', { title: 'Home', blogs:blogs });
+  res.render('index', { title: 'Home', blogs:blogs });
 });
 
 app.get('/about', (req, res) => {
