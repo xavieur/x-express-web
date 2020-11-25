@@ -65,6 +65,11 @@ app.get('/test/create', (req, res) => {
   res.render('test-create', { title: 'Create a new test' });
 });
 
+app.get('/interfaz', (req, res) => {
+  res.render('interfaz', { title: 'Interacción con el servidor' });
+});
+
+
 app.use(cors())
 app.use(express.json())
 app.use('/api', taskRouter)
