@@ -86,3 +86,12 @@
       font-size: 1.2em;
       cursor: pointer;
     }
+
+    ul{
+      list-style-type: none;
+    }
+
+    ul li a{
+      margin: 16px;
+      background-color: lightcoral;
+    }
