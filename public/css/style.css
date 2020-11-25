@@ -91,7 +91,7 @@
       list-style-type: none;
     }
 
-    main ul li a{
+    #post, #readAll, #read, #update, #delete{
       padding: 16px;
       margin: 8px;
       background-color: lightcoral;
