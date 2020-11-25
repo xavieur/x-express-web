@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon -r dotenv/config src/app.js",
-    "sass": "sass --watch src/:public/css/"
+    "sass": "sass --watch src/sass/:public/css/"
   },
   "author": "X",
   "license": "ISC",
