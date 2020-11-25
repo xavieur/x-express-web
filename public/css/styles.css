@@ -1,0 +1,21 @@
+input {
+  display: block;
+}
+
+div {
+  width: 90%;
+  margin: auto;
+}
+div h1 {
+  color: blue;
+  background-color: black;
+  font-family: Arial, sans-serif;
+}
+div p {
+  font-size: 16px;
+}
+div form {
+  background-color: pink;
+}
+
+/*# sourceMappingURL=styles.css.map */

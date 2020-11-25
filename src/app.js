@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan=require('morgan')
+const cors = require('cors')
 
 require('../db/mongoose')
 const taskRouter = require('../routers/task')
@@ -64,6 +65,7 @@ app.get('/test/create', (req, res) => {
   res.render('test-create', { title: 'Create a new test' });
 });
 
+app.use(cors())
 app.use(express.json())
 app.use('/api', taskRouter)
 app.use('/api', userRouter)
