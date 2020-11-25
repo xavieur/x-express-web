@@ -91,7 +91,8 @@
       list-style-type: none;
     }
 
-    ul li a{
-      margin: 16px;
+    main ul li a{
+      padding: 16px;
+      margin: 8px;
       background-color: lightcoral;
     }
