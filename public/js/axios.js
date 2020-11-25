@@ -23,21 +23,21 @@ readRequests.addEventListener('click', async (e) => {
     console.log(resultado)
 })
 
-readRequest.addEventListener('click', (e) => {
+readRequest.addEventListener('click', async (e) => {
     e.preventDefault()
     const resultado = await axios.get('https://x-express-web.herokuapp.com/api/tests/5fb63caff287430989eddb04')
     console.log(resultado)
 
 })
 
-updateRequest.addEventListener('click', (e) => {
+updateRequest.addEventListener('click', async (e) => {
     e.preventDefault()
     const resultado = await axios.patch('https://x-express-web.herokuapp.com/api/tests/5fb63caff287430989eddb04', {data: {question:'¿Cómo se traduce al castellano en nombre del módulo que gestiona la base de datos?'}})
     console.log(resultado)
 
 })
 
-deleteRequest.addEventListener('click', (e) => {
+deleteRequest.addEventListener('click', async (e) => {
     e.preventDefault()
     const resultado = await axios.delete('https://x-express-web.herokuapp.com/api/tests/5fb63caff287430989eddb04')
     console.log(resultado)
