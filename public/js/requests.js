@@ -32,7 +32,7 @@ readRequest.addEventListener('click', async (e) => {
 
 updateRequest.addEventListener('click', async (e) => {
     e.preventDefault()
-    const resultado = await axios.patch('https://x-express-web.herokuapp.com/api/tests/5fb63caff287430989eddb04', {question:'¿Cómo se traduce al castellano en nombre del módulo que gestiona la base de datos?'})
+    const resultado = await axios.patch('https://x-express-web.herokuapp.com/api/tests/5fbe43e8ed1d1800174795f5', {question:'¿A quién tengo que llamar cuando acabe la clase?'})
     console.log(resultado)
 
 })
