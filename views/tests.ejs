@@ -1,23 +1,27 @@
 <%- include("./partials/header.ejs") %>
-
-<div class="tests content">
-  <h2>All Tests</h2>
-  <% if (tests.length > 0) { %>
-  <% tests.forEach(test => { %>
-
-  <h3 class="title"><%= test.question %></h3>
-  <ul>
-      <li><%= test.answer1 %></li>
-      <li><%= test.answer2 %></li>
-      <li><%= test.answer3 %></li>
-      <li><%= test.answer4 %></li>
-  </ul>
-  
-  <% }) %>
-  <% } else { %>
-  <p>There are no tests to display...</p>
-  <% } %>
-
-</div>
+<main>
+  <section class="test content">
+    <h3>Cuestionario</h3>
+    <% if (tests.length > 0) { %>
+    <%   let form
+    tests.forEach((test, index) => { 
+      if(index<10){
+        form = `form-0${index}`
+      } else {
+        form = `form-${index}`
+      } %>
+      <form id="<%= form %>" action="">
+        <p><%= test.question %></p>
+        <input type="radio" name="<%= form %>" value="1"><span><%= test.answer1 %></span><br>
+        <input type="radio" name="<%= form %>" value="2"><span><%= test.answer2 %></span><br>
+        <input type="radio" name="<%= form %>" value="3"><span><%= test.answer3 %></span><br>
+        <input type="radio" name="<%= form %>" value="4"><span><%= test.answer4 %></span><br>
+      </form>
+    <% }) %>
+    <% } else { %>
+    <p>Las preguntas no están preparadas todavía.</p>
+    <% } %>
+  </section>
+</main>
 
 <%- include("./partials/footer.ejs") %>

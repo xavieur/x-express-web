@@ -1,3 +1,5 @@
+
+
 // const postRequest = document.querySelector('#post')
 const readRequests = document.querySelector('#readAll')
 const readRequest = document.querySelector('#read')
@@ -45,7 +47,6 @@ updateRequest.addEventListener('click', async (e) => {
     e.preventDefault()
     const resultado = await axios.patch('https://x-express-web.herokuapp.com/api/tests/5fbe43e8ed1d1800174795f5', {question:'¿A quién tengo que llamar cuando acabe la clase?'})
     console.log(resultado)
-
 })
 
 deleteRequest.addEventListener('click', async (e) => {
@@ -53,3 +54,14 @@ deleteRequest.addEventListener('click', async (e) => {
     const resultado = await axios.delete('https://x-express-web.herokuapp.com/api/tests/5fb63caff287430989eddb04')
     console.log(resultado)
 })
+
+
+const titular = document.querySelector('.titular')
+const pintarButton = document.querySelector('#pintar')
+
+pintarButton.addEventListener('click', (e)=>{
+    titular.classList.add('acierto')
+    titular.classList.remove('acierto')
+    titular.classList.toggle('acierto')
+})
+

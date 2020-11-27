@@ -126,3 +126,19 @@ main #delete {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.titular{
+    background-color: lightcyan;
+}
+
+.fondoNegro{
+   background-color: black;
+}
+
+.acierto{
+  color: green
+}
+
+.fallo{
+  color: red
+}
