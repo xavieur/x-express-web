@@ -1,3 +1,13 @@
 input{
-    display: block;
+    display: inline-block;
+}
+
+form{
+    margin:16px;
+    p{
+        margin:8px;
+    }
+    input{
+        margin-left: 16px;
+    }
 }

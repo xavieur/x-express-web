@@ -1,5 +1,3 @@
-
-
 // const postRequest = document.querySelector('#post')
 const readRequests = document.querySelector('#readAll')
 const readRequest = document.querySelector('#read')
@@ -53,15 +51,5 @@ deleteRequest.addEventListener('click', async (e) => {
     e.preventDefault()
     const resultado = await axios.delete('https://x-express-web.herokuapp.com/api/tests/5fb63caff287430989eddb04')
     console.log(resultado)
-})
-
-
-const titular = document.querySelector('.titular')
-const pintarButton = document.querySelector('#pintar')
-
-pintarButton.addEventListener('click', (e)=>{
-    titular.classList.add('acierto')
-    titular.classList.remove('acierto')
-    titular.classList.toggle('acierto')
 })
 

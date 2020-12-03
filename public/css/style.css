@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 input {
-  display: block;
+  display: inline-block;
+}
+
+form {
+  margin: 16px;
+}
+form p {
+  margin: 8px;
+}
+form input {
+  margin-left: 16px;
 }
 
 body {
@@ -123,22 +133,7 @@ main #delete {
   border: 1px darkgreen solid;
   border-radius: 32px;
   color: darkgreen;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
-
-.titular{
-    background-color: lightcyan;
-}
-
-.fondoNegro{
-   background-color: black;
-}
-
-.acierto{
-  color: green
-}
-
-.fallo{
-  color: red
-}

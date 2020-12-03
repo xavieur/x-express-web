@@ -11,12 +11,13 @@
   "author": "X",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
     "mongoose": "^5.10.14",
     "morgan": "^1.10.0",
-    "validator": "^13.1.17"
+    "validator": "^13.5.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

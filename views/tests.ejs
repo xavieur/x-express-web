@@ -10,12 +10,12 @@
       } else {
         form = `form-${index}`
       } %>
-      <form id="<%= form %>" action="">
+      <form id="<%= test._id %>" action="">
         <p><%= test.question %></p>
-        <input type="radio" name="<%= form %>" value="1"><span><%= test.answer1 %></span><br>
-        <input type="radio" name="<%= form %>" value="2"><span><%= test.answer2 %></span><br>
-        <input type="radio" name="<%= form %>" value="3"><span><%= test.answer3 %></span><br>
-        <input type="radio" name="<%= form %>" value="4"><span><%= test.answer4 %></span><br>
+        <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
+        <input type="radio" name="<%= test._id %>" value="2"><span><%= test.answer2 %></span><br>
+        <input type="radio" name="<%= test._id %>" value="3"><span><%= test.answer3 %></span><br>
+        <input type="radio" name="<%= test._id %>" value="4"><span><%= test.answer4 %></span><br>
       </form>
     <% }) %>
     <% } else { %>
@@ -24,4 +24,4 @@
   </section>
 </main>
 
-<%- include("./partials/footer.ejs") %>
+<%- include("./partials/footer-exam.ejs") %>
