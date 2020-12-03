@@ -25,6 +25,15 @@ const Test = mongoose.model('Test', new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    solution: {
+        type: Number,
+        required: true,
+        validate(value){
+            if(value<1 || value>4){
+                throw new Error('Solución no válida')
+            }
+        }
     }
 }))
 

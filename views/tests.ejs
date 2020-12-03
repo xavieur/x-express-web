@@ -4,12 +4,7 @@
     <h3>Cuestionario</h3>
     <% if (tests.length > 0) { %>
     <%   let form
-    tests.forEach((test, index) => { 
-      if(index<10){
-        form = `form-0${index}`
-      } else {
-        form = `form-${index}`
-      } %>
+    tests.forEach((test) => { 
       <form id="<%= test._id %>" action="">
         <p><%= test.question %></p>
         <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
