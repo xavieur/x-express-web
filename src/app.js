@@ -3,7 +3,7 @@ const morgan=require('morgan')
 const cors = require('cors')
 
 require('../db/mongoose')
-const taskRouter = require('../routers/task')
+const postRouter = require('../routers/post')
 const userRouter = require('../routers/user')
 const testRouter = require('../routers/test')
 
@@ -72,7 +72,7 @@ app.get('/interfaz', (req, res) => {
 
 app.use(cors())
 app.use(express.json())
-app.use('/api', taskRouter)
+app.use('/api', postRouter)
 app.use('/api', userRouter)
 app.use('/api', testRouter)
 
