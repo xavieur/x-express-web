@@ -1,46 +1,46 @@
 const express = require('express')
 const router = new express.Router()
-const Task = require('../models/task')
+const Post = require('../models/post')
 
-router.post('/tasks', async (req, res) => {
-    const task = new Task(req.body)
+router.post('/posts', async (req, res) => {
+    const post = new Post(req.body)
 
     try {
-        await task.save()
-        res.status(201).send(task)
+        await post.save()
+        res.status(201).send(post)
     } catch (e) {
         res.status(400).send(e)
     }
 })
 
-router.get('/tasks', async (req, res) => {
+router.get('/posts', async (req, res) => {
     try {
-        const tasks = await Task.find({})
-        res.send(tasks)
+        const posts = await Post.find({})
+        res.send(posts)
     } catch (e) {
         res.status(500).send()
     }
 })
 
-router.get('/tasks/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
     const _id = req.params.id
 
     try {
-        const task = await Task.findById(_id)
+        const post = await Post.findById(_id)
 
-        if (!task) {
+        if (!post) {
             return res.status(404).send()
         }
 
-        res.send(task)
+        res.send(post)
     } catch (e) {
         res.status(500).send()
     }
 })
 
-router.patch('/tasks/:id', async (req, res) => {
+router.patch('/posts/:id', async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['description', 'completed']
+    const allowedUpdates = ['title', 'snippet', 'body']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
@@ -48,27 +48,27 @@ router.patch('/tasks/:id', async (req, res) => {
     }
 
     try {
-        const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+        const post = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
 
-        if (!task) {
+        if (!post) {
             return res.status(404).send()
         }
 
-        res.send(task)
+        res.send(post)
     } catch (e) {
         res.status(400).send(e)
     }
 })
 
-router.delete('/tasks/:id', async (req, res) => {
+router.delete('/posts/:id', async (req, res) => {
     try {
-        const task = await Task.findByIdAndDelete(req.params.id)
+        const post = await Post.findByIdAndDelete(req.params.id)
 
-        if (!task) {
+        if (!post) {
             res.status(404).send()
         }
 
-        res.send(task)
+        res.send(post)
     } catch (e) {
         res.status(500).send()
     }
