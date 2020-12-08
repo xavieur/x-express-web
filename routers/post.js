@@ -33,7 +33,7 @@ router.get('/posts/:id', async (req, res) => {
             return res.status(404).send()
         }
 
-        res.send(post)
+        res.render('post-view', { post })
     } catch (e) {
         res.status(500).send()
     }
@@ -55,7 +55,7 @@ router.patch('/posts/:id', async (req, res) => {
             return res.status(404).send()
         }
 
-        res.send(post)
+        res.redirect('/')
     } catch (e) {
         res.status(400).send(e)
     }
@@ -69,7 +69,7 @@ router.delete('/posts/:id', async (req, res) => {
             res.status(404).send()
         }
 
-        res.send(post)
+        res.redirect('/')
     } catch (e) {
         res.status(500).send()
     }

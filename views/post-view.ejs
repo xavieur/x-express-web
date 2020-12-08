@@ -1,0 +1,13 @@
+<%- include("./partials/header.ejs") %>
+
+<main>
+  <section>
+    <!-- todo -->
+    <a href="/"><< back</a> || <a href="/post-edit/<%= post._id %>">edit</a>
+    <br><br>
+    <h2><%= post.title %></h2>
+    <p><%= post.body %></p>
+  </section>
+</main>
+
+<%- include("./partials/footer.ejs") %>

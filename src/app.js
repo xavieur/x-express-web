@@ -1,5 +1,5 @@
 const express = require('express')
-const morgan=require('morgan')
+const morgan = require('morgan')
 const cors = require('cors')
 
 require('../db/mongoose')
@@ -42,7 +42,7 @@ app.get('/', async (req, res) => {
     res.render('index', { title: 'List of posts', posts: posts });
   } catch (e) {
     res.render('index', { title: 'List of posts', posts: [] });
-}
+  }
 });
 
 app.get('/about', (req, res) => {
@@ -53,17 +53,29 @@ app.get('/posts/create', (req, res) => {
   res.render('post-create', { title: 'Create a new post' });
 });
 
-app.get('/posts/edit', (req, res) => {
-  res.render('post-edit', { title: 'Edit post' });
+app.get('/post-edit/:id', async (req, res) => {
+  const _id = req.params.id
+
+  try {
+    const post = await Post.findById(_id)
+
+    if (!post) {
+      return res.status(404).send()
+    }
+
+    res.render('post-edit', { title: 'Edit post', post });
+  } catch (e) {
+    res.status(500).send()
+  }
 });
 
 app.get('/tests', async (req, res) => {
-    try {
-        const tests = await Test.find({})
-        res.render('tests', { title: 'List of tests', tests: tests });
-      } catch (e) {
-        res.render('tests', { title: 'List of tests', tests: [] });
-    }
+  try {
+    const tests = await Test.find({})
+    res.render('tests', { title: 'List of tests', tests: tests });
+  } catch (e) {
+    res.render('tests', { title: 'List of tests', tests: [] });
+  }
 });
 
 app.get('/test/create', (req, res) => {

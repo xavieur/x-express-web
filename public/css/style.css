@@ -65,6 +65,12 @@ body main h2 {
 body main button {
   margin-top: 32px;
 }
+body main .post {
+  padding: 32px;
+  margin-bottom: 32px;
+  background-color: darkcyan;
+  border-radius: 32px;
+}
 body footer {
   width: 90%;
   margin: auto;
@@ -74,7 +80,8 @@ body footer {
 
 form {
   color: white;
-  border: 1px red black;
+  border: 1px darkcyan dotted;
+  border-radius: 32px;
   padding: 16px;
 }
 form p {
@@ -90,6 +97,7 @@ form input {
   display: block;
   border-radius: 16px;
   padding: 16px;
+  font-size: 1em;
 }
 form input[type=radio] {
   display: inline;
@@ -100,6 +108,7 @@ form textarea {
   display: block;
   padding: 16px;
   border-radius: 16px;
+  font-size: 1.25em;
   width: 40%;
 }
 form button {
@@ -196,9 +205,10 @@ form button {
 
 button {
   font-size: 1em;
-  padding: 8px;
+  padding: 16px;
   border: 1px darkblue solid;
   border-radius: 32px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

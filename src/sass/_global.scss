@@ -1,7 +1,7 @@
 $primary: white;
 $secondary: rgb(0, 64, 128);
-$familia: 'Noto Serif',
-sans-serif;
+$linkBackGroundColor: darkcyan;
+$familia: 'Noto Serif', sans-serif;
 
 * {
     padding: 0;
@@ -60,7 +60,7 @@ body {
         margin: auto;
 
         a{
-            background-color: darkcyan;
+            background-color: $linkBackGroundColor;
         }
 
         ul {
@@ -79,6 +79,13 @@ body {
 
         button{
             margin-top: 32px;
+        }
+
+        .post{
+            padding: 32px;
+            margin-bottom: 32px;
+            background-color: $linkBackGroundColor;
+            border-radius: 32px;
         }
     }
 
