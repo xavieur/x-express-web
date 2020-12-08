@@ -9,7 +9,7 @@ router.post('/tests', async (req, res) => {
         await test.save()
         res.redirect('/tests')
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).send()
     }
 })
 
@@ -56,7 +56,7 @@ router.patch('/tests/:id', async (req, res) => {
 
         res.send(test)
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).send()
     }
 })
 
@@ -70,7 +70,7 @@ router.delete('/tests/:id', async (req, res) => {
 
         res.send(test)
     } catch (e) {
-        res.status(500).send(e)
+        res.status(500).send()
     }
 })
 

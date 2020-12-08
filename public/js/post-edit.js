@@ -3,9 +3,10 @@ const postEditForm = document.querySelector('#post-form-edit')
 postEditForm.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    console.log('hola', e.submitter)
     let submitterID = e.submitter.id
     const postID = e.target.dataset.id
+
+    console.log('post-id: ', postID)
 
     if (submitterID === 'edit') {
         const update = {}
@@ -21,8 +22,6 @@ postEditForm.addEventListener('submit', async (e) => {
         if (body) {
             update.body = body
         }
-
-        console.log( )
 
         try {
             const resultado = await axios.patch(`/api/posts/${postID}`, update)
