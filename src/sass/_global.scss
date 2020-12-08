@@ -1,7 +1,8 @@
 $primary: white;
 $secondary: rgb(0, 64, 128);
 $linkBackGroundColor: darkcyan;
-$familia: 'Noto Serif', sans-serif;
+$familia: 'Noto Serif',
+sans-serif;
 
 * {
     padding: 0;
@@ -33,17 +34,6 @@ body {
             border-bottom: 1px solid #ddd;
             text-transform: uppercase;
 
-            ul {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                list-style-type: none;
-
-                li {
-                    margin-left: 20px;
-                }
-            }
-
             h1 {
                 font-size: 3em;
             }
@@ -52,6 +42,24 @@ body {
                 color: $primary;
                 font-weight: 300;
             }
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                list-style-type: none;
+
+                li {
+                    margin-left: 20px;
+                    
+                    &:nth-child(1) {
+                        a{
+
+                            color: $secondary;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -59,33 +67,41 @@ body {
         width: 90%;
         margin: auto;
 
-        a{
-            background-color: $linkBackGroundColor;
-        }
+        section {
 
-        ul {
-            margin-left: 32px;
-        }
+            a {
+                background-color: $linkBackGroundColor;
+            }
 
-        p {
-            margin-top: 16px;
-            margin-bottom: 16px;
-        }
+            ul {
+                margin-left: 32px;
+            }
 
-        h2 {
-            margin-bottom: 32px;
-            text-transform: capitalize;
-        }
+            p {
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
 
-        button{
-            margin-top: 32px;
-        }
+            h2 {
+                margin-bottom: 32px;
+                text-transform: capitalize;
+            }
 
-        .post{
-            padding: 32px;
-            margin-bottom: 32px;
-            background-color: $linkBackGroundColor;
-            border-radius: 32px;
+            button {
+                margin-top: 32px;
+            }
+
+            .post {
+                padding: 32px;
+                margin-bottom: 32px;
+                background-color: $linkBackGroundColor;
+                border-radius: 32px;
+            }
+
+            .section-head {
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 

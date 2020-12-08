@@ -2,19 +2,25 @@
 
 <main>
   <section>
-    <h2>All posts</h2>
+    <div class="section-head">
+      <h2>All posts</h2><span><a href="/post/create">new post</a></span>
+    </div>
     <% if (posts.length > 0) { %>
     <% posts.forEach(post => { %>
 
-    <a href="/api/posts/<%= post._id %>"><div class="post"><h3 class="title"><%= post.title %></h3>
-    <p class="snippet"><%= post.snippet %></p></div></a>
+    <a href="/api/posts/<%= post._id %>">
+      <div class="post">
+        <h3 class="title"><%= post.title %></h3>
+        <p class="snippet"><%= post.snippet %></p>
+      </div>
+    </a>
 
     <% }) %>
     <% } else { %>
     <p>There are no posts to display...</p>
     <% } %>
 
-    </section>
+  </section>
 </main>
 
 <%- include("./partials/footer.ejs") %>

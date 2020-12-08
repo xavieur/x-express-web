@@ -28,6 +28,13 @@ body header nav {
   border-bottom: 1px solid #ddd;
   text-transform: uppercase;
 }
+body header nav h1 {
+  font-size: 3em;
+}
+body header nav a {
+  color: white;
+  font-weight: 300;
+}
 body header nav ul {
   display: flex;
   justify-content: space-between;
@@ -37,39 +44,39 @@ body header nav ul {
 body header nav ul li {
   margin-left: 20px;
 }
-body header nav h1 {
-  font-size: 3em;
-}
-body header nav a {
-  color: white;
-  font-weight: 300;
+body header nav ul li:nth-child(1) a {
+  color: #004080;
 }
 body main {
   width: 90%;
   margin: auto;
 }
-body main a {
+body main section a {
   background-color: darkcyan;
 }
-body main ul {
+body main section ul {
   margin-left: 32px;
 }
-body main p {
+body main section p {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-body main h2 {
+body main section h2 {
   margin-bottom: 32px;
   text-transform: capitalize;
 }
-body main button {
+body main section button {
   margin-top: 32px;
 }
-body main .post {
+body main section .post {
   padding: 32px;
   margin-bottom: 32px;
   background-color: darkcyan;
   border-radius: 32px;
+}
+body main section .section-head {
+  display: flex;
+  justify-content: space-between;
 }
 body footer {
   width: 90%;

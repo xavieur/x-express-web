@@ -49,7 +49,7 @@ app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
 });
 
-app.get('/posts/create', (req, res) => {
+app.get('/post/create', (req, res) => {
   res.render('post-create', { title: 'Create a new post' });
 });
 

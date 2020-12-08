@@ -1,7 +1,9 @@
 <%- include("./partials/header.ejs") %>
 <main>
   <section>
-    <h2>Cuestionario</h2>
+    <div class="section-head">
+      <h2>Cuestionario</h2><span><a href="/test/create">new test</a></span>
+    </div>
     <% if (tests.length > 0) { %>
     <% tests.forEach((test) => { %>
     <form id="<%= test._id %>" action="">
