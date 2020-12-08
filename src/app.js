@@ -35,21 +35,21 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  const blogs = [
-    { title: 'Pastel de zanahoria', snippet: 'Lorem ipsum dolor sit amet consectetur' },
-    { title: 'Zhulien de champiñones', snippet: 'Lorem ipsum dolor sit amet consectetur' },
-    { title: 'Shakshuka', snippet: 'Lorem ipsum dolor sit amet consectetur' },
-  ];
-  res.render('index', { title: 'Home', blogs:blogs });
+app.get('/', async (req, res) => {
+  try {
+    const posts = await Test.find({})
+    res.render('posts', { title: 'List of posts', posts: posts });
+  } catch (e) {
+    res.render('posts', { title: 'List of posts', posts: [] });
+}
 });
 
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
 });
 
-app.get('/blogs/create', (req, res) => {
-  res.render('blog-create', { title: 'Create a new blog' });
+app.get('/posts/create', (req, res) => {
+  res.render('post-create', { title: 'Create a new post' });
 });
 
 app.get('/tests', async (req, res) => {
