@@ -1,7 +1,7 @@
 <%- include("./partials/header.ejs") %>
 <main>
-  <section class="test content">
-    <h3>Cuestionario</h3>
+  <section>
+    <h2>Cuestionario</h2>
     <% if (tests.length > 0) { %>
     <% tests.forEach((test) => { %>
       <form id="<%= test._id %>" action="">

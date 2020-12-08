@@ -1,14 +1,4 @@
-$color: blue;
-$familia: Arial, sans-serif;
-
+@use 'global';
 @use 'form';
 
-@use 'previous'
 
-
-.form{
-    width: 50%;
-    margin:auto;
-    padding: 16px;
-    color: blue;
-}

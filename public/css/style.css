@@ -1,40 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
-input {
-  display: inline-block;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-form {
-  margin: 16px;
-}
-form p {
-  margin: 8px;
-}
-form input {
-  margin-left: 16px;
+a {
+  text-decoration: none;
 }
 
 body {
-  max-width: 1200px;
+  color: white;
+  background-color: #004080;
   margin: 20px auto;
   padding: 0 20px;
   font-family: "Noto Serif", serif;
-  max-width: 1200px;
 }
-
-p,
-h1,
-h2,
-h3,
-a,
-ul {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  color: #222;
+body header {
+  width: 90%;
+  margin: auto;
 }
-
-/* nav & footer styles */
-nav {
+body header nav {
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
@@ -42,98 +27,64 @@ nav {
   border-bottom: 1px solid #ddd;
   text-transform: uppercase;
 }
-
-nav ul {
+body header nav ul {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
-
-nav li {
   list-style-type: none;
+}
+body header nav ul li {
   margin-left: 20px;
 }
-
-nav h1 {
+body header nav h1 {
   font-size: 3em;
 }
-
-nav p,
-nav a {
-  color: #777;
+body header nav a {
+  color: white;
   font-weight: 300;
 }
-
-footer {
-  color: #777;
+body main {
+  width: 90%;
+  margin: auto;
+}
+body main ul {
+  margin-left: 32px;
+}
+body main p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+body main h2 {
+  margin-bottom: 32px;
+  text-transform: capitalize;
+}
+body footer {
+  width: 90%;
+  margin: auto;
   text-align: center;
   margin: 80px auto 20px;
 }
 
-h2 {
-  margin-bottom: 40px;
-}
-
-h3 {
-  text-transform: capitalize;
-  margin-bottom: 8px;
-}
-
-.content {
-  margin-left: 20px;
-}
-
-/* index styles */
-/* details styles */
-/* create styles */
-.create-blog form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.create-blog input,
-.create-blog textarea {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 8px;
-}
-
-.create-blog label {
-  display: block;
-  margin-top: 24px;
-}
-
-textarea {
-  height: 120px;
-}
-
-.create-blog button {
-  margin-top: 20px;
-  background: crimson;
+form {
   color: white;
-  padding: 6px;
-  border: 0;
-  font-size: 1.2em;
-  cursor: pointer;
+  border: 1px red black;
+  padding: 16px;
 }
-
-ul {
-  list-style-type: none;
+form p {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
-
-main #post,
-main #readAll,
-main #read,
-main #update,
-main #delete {
-  display: inline-block;
-  padding: 8px;
+form input {
+  display: block;
   margin: 8px;
-  border: 1px darkgreen solid;
-  border-radius: 32px;
-  color: darkgreen;
-  background-color: white;
+}
+form input[type=radio] {
+  display: inline;
+  margin-left: 32px;
+}
+form textarea {
+  display: block;
+  width: 40%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 <%- include("./partials/header.ejs") %>
 <main>
-    <ul>
+    <section>
         <form id="test-form" action="/api/tests" method="POST">
             <label for="question">Question:</label><br>
             <textarea id="question" name="question" required rows="2" cols="70"></textarea><br>
@@ -22,6 +22,6 @@
         <li><a id="read" href="#">read a test</a></li>
         <li><a id="update" href="#">update a test</a></li>
         <li><a id="delete" href="#">delete a test</a></li>
-    </ul>
+    </section>
 </main>
 <%- include("./partials/footer-interfaz.ejs") %>
