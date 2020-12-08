@@ -24,8 +24,10 @@ postEditForm.addEventListener('submit', async (e) => {
 
         const resultado = await axios.patch(`/api/posts/${postID}`, update)
         console.log(resultado)
+        window.location.assign('/')
     } else if (submitterID === 'delete') {
         const resultado = await axios.delete(`/api/posts/${postID}`)
         console.log(resultado)
+        window.location.assign('/')
     }
 })
