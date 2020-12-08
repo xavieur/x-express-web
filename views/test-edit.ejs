@@ -1,7 +1,7 @@
 <%- include("./partials/header.ejs") %>
 <main>
-    <div>
-        <form id="test-form-create" action="/api/tests" method="POST">
+    <div class="form">
+        <form id="test-form-edit">
             <label for="question">Question:</label><br>
             <textarea id="question" name="question" required rows="2" cols="70"></textarea><br>
             <label for="answer1">Answer 1:</label><br>
@@ -12,7 +12,7 @@
             <textarea id="answer3" name="answer3" required rows="2" cols="70"></textarea><br>
             <label for="answer4">Answer 4:</label><br>
             <textarea id="answer4" name="answer4" required rows="2" cols="70"></textarea><br>
-            <button>Create test</button>
+            <button>Edit test</button>
         </form>
     </div>
 </main>
