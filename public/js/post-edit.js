@@ -7,7 +7,7 @@ postEditForm.addEventListener('submit', async (e) => {
     let submitterID = e.submitter.id
     const postID = e.target.dataset.id
 
-    if (submitterID = 'edit') {
+    if (submitterID === 'edit') {
         const update = {}
         const title = e.target.elements.title.value
         if (title) {
