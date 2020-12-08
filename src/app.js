@@ -8,6 +8,7 @@ const userRouter = require('../routers/user')
 const testRouter = require('../routers/test')
 
 const Test = require('../models/test')
+const Post = require('../models/post')
 
 const port = process.env.PORT
 
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
 
 app.get('/', async (req, res) => {
   try {
-    const posts = await Test.find({})
+    const posts = await Post.find({})
     res.render('posts', { title: 'List of posts', posts: posts });
   } catch (e) {
     res.render('posts', { title: 'List of posts', posts: [] });
