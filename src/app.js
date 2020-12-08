@@ -39,9 +39,9 @@ app.use((req, res, next) => {
 app.get('/', async (req, res) => {
   try {
     const posts = await Post.find({})
-    res.render('posts', { title: 'List of posts', posts: posts });
+    res.render('index', { title: 'List of posts', posts: posts });
   } catch (e) {
-    res.render('posts', { title: 'List of posts', posts: [] });
+    res.render('index', { title: 'List of posts', posts: [] });
 }
 });
 
