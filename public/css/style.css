@@ -6,6 +6,7 @@
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 body {
@@ -47,6 +48,9 @@ body main {
   width: 90%;
   margin: auto;
 }
+body main a {
+  background-color: darkcyan;
+}
 body main ul {
   margin-left: 32px;
 }
@@ -57,6 +61,9 @@ body main p {
 body main h2 {
   margin-bottom: 32px;
   text-transform: capitalize;
+}
+body main button {
+  margin-top: 32px;
 }
 body footer {
   width: 90%;
@@ -74,17 +81,124 @@ form p {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+form label {
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 form input {
   display: block;
-  margin: 8px;
+  border-radius: 16px;
+  padding: 16px;
 }
 form input[type=radio] {
   display: inline;
   margin-left: 32px;
+  margin-right: 1em;
 }
 form textarea {
   display: block;
+  padding: 16px;
+  border-radius: 16px;
   width: 40%;
+}
+form button {
+  margin-top: 32px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  /* Modal Content/Box */
+  /* The Close Button */
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  /* plus */
+  position: relative;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animateModalFromTop;
+  animation-duration: 0.4s;
+  /* Modal Header */
+  /* Modal Body */
+  /* Modal Footer */
+}
+.modal .modal-content .modal-header {
+  padding: 2px 16px;
+  background-color: #042404;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.modal .modal-content .modal-body {
+  padding: 2px 16px;
+  color: #004080;
+}
+.modal .modal-content .modal-footer {
+  padding: 2px 16px;
+  background-color: #042404;
+  color: white;
+}
+.modal .close {
+  display: inline;
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.modal .close:hover,
+.modal .close:focus {
+  color: #f8c5c5;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* keyframes */
+@keyframes animateModalFromTop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+/* JavaScript classList */
+.show {
+  display: block;
+}
+
+button {
+  font-size: 1em;
+  padding: 8px;
+  border: 1px darkblue solid;
+  border-radius: 32px;
 }
 
 /*# sourceMappingURL=style.css.map */

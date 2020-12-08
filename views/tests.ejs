@@ -4,17 +4,39 @@
     <h2>Cuestionario</h2>
     <% if (tests.length > 0) { %>
     <% tests.forEach((test) => { %>
-      <form id="<%= test._id %>" action="">
-        <p><%= test.question %></p>
-        <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
-        <input type="radio" name="<%= test._id %>" value="2"><span><%= test.answer2 %></span><br>
-        <input type="radio" name="<%= test._id %>" value="3"><span><%= test.answer3 %></span><br>
-        <input type="radio" name="<%= test._id %>" value="4"><span><%= test.answer4 %></span><br>
-      </form>
+    <form id="<%= test._id %>" action="">
+      <p><%= test.question %></p>
+      <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
+      <input type="radio" name="<%= test._id %>" value="2"><span><%= test.answer2 %></span><br>
+      <input type="radio" name="<%= test._id %>" value="3"><span><%= test.answer3 %></span><br>
+      <input type="radio" name="<%= test._id %>" value="4"><span><%= test.answer4 %></span><br>
+    </form>
     <% }) %>
     <% } else { %>
     <p>Las preguntas no están preparadas todavía.</p>
     <% } %>
+    <button id="verify">Verificar respuestas</button>
+    
+    <div id="answersModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Evaluación</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Respuestas correctas:</p>
+          <p id="rightAnswers"></p>
+          <p>Respuestas incorrectas:</p>
+          <p id="wrongAnswers"></p>
+          <p>Puntuación:</p>
+          <p id="score"></p>
+        </div>
+        <div class="modal-footer">
+          <h4>&copy; 2020</h4>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 

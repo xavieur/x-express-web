@@ -1,6 +1,7 @@
 $primary: white;
-$secondary: rgb(0,64,128);
-$familia: 'Noto Serif', sans-serif;
+$secondary: rgb(0, 64, 128);
+$familia: 'Noto Serif',
+sans-serif;
 
 * {
     padding: 0;
@@ -10,9 +11,10 @@ $familia: 'Noto Serif', sans-serif;
 
 a {
     text-decoration: none;
+    color: $primary;
 }
 
-body{
+body {
     color: $primary;
     background-color: $secondary;
     margin: 20px auto;
@@ -56,16 +58,27 @@ body{
     main {
         width: 90%;
         margin: auto;
-        ul{
+
+        a{
+            background-color: darkcyan;
+        }
+
+        ul {
             margin-left: 32px;
         }
-        p{
+
+        p {
             margin-top: 16px;
             margin-bottom: 16px;
         }
+
         h2 {
             margin-bottom: 32px;
             text-transform: capitalize;
+        }
+
+        button{
+            margin-top: 32px;
         }
     }
 

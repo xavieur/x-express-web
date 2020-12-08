@@ -20,8 +20,8 @@ const consultRightAnswers = async () => {
     let answers = await axios.get('https://x-express-web.herokuapp.com/api/tests')
     console.log(answers.data)
 
-    answers = answers.data.map((test)=>{
-        return {id:test._id, value:test.value}
+    answers = answers.data.map((test) => {
+        return { id: test._id, value: test.value }
     })
     writeAnswers(answers)
 }
@@ -63,6 +63,27 @@ const checkAnswers = () => {
 
 }
 
-window.addEventListener('unload', (e)=>{
+window.addEventListener('unload', (e) => {
     localStorage.clear()
+})
+
+const showAnswersButton = document.querySelector('#verify')
+const answersModal = document.querySelector('#answersModal')
+const closeAnswersModal = document.querySelector('#answersModal span.close')
+
+showAnswersButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log('modal button clicked')
+    answersModal.classList.add('show')
+})
+
+window.addEventListener('click', (e) => {
+    console.log(e.target)
+    if (e.target === answersModal) {
+        answersModal.classList.remove('show')
+    }
+})
+
+closeAnswersModal.addEventListener('click', (e) => {
+    answersModal.classList.remove('show')
 })

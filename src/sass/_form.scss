@@ -12,18 +12,31 @@ form {
         margin-bottom: 16px;
     }
 
+    label{
+        display:block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
     input {
         display: block;
-        margin: 8px;
+        border-radius: 16px;
+        padding: 16px;
     }
 
     input[type=radio]{
         display: inline;
         margin-left: 32px;
+        margin-right: 1em;;
     }
 
     textarea {
         display: block;
+        padding: 16px;
+        border-radius: 16px;
         width: 40%;
+    }
+    button{
+        margin-top: 32px;
     }
 }

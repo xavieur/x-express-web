@@ -5,8 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon -r dotenv/config src/app.js",
-    "sass": "sass --watch src/sass/:public/css/"
+    "nodemon": "nodemon -r dotenv/config src/app.js",
+    "sass": "sass --watch src/sass/:public/css/",
+    "dev": "npm run nodemon & npm run sass"
   },
   "author": "X",
   "license": "ISC",

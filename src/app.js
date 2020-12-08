@@ -53,6 +53,10 @@ app.get('/posts/create', (req, res) => {
   res.render('post-create', { title: 'Create a new post' });
 });
 
+app.get('/posts/edit', (req, res) => {
+  res.render('post-edit', { title: 'Edit post' });
+});
+
 app.get('/tests', async (req, res) => {
     try {
         const tests = await Test.find({})
@@ -64,6 +68,10 @@ app.get('/tests', async (req, res) => {
 
 app.get('/test/create', (req, res) => {
   res.render('test-create', { title: 'Create a new test' });
+});
+
+app.get('/test/edit', (req, res) => {
+  res.render('test-edit', { title: 'Edit test' });
 });
 
 app.get('/interfaz', (req, res) => {
