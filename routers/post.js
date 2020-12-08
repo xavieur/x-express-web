@@ -55,7 +55,7 @@ router.patch('/posts/:id', async (req, res) => {
             return res.status(404).send()
         }
 
-        res.send(resource)
+        res.send(post)
     } catch (e) {
         res.status(400).send(e)
     }

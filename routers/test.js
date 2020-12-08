@@ -70,7 +70,7 @@ router.delete('/tests/:id', async (req, res) => {
 
         res.send(test)
     } catch (e) {
-        res.status(500).send()
+        res.status(500).send(e)
     }
 })
 
