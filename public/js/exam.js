@@ -8,21 +8,26 @@ for (let form of document.forms) {
         if (id && value) {
             const guesses = readGuesses()
             console.log('guesses before push ', guesses)
-            guesses.push({ id, value })
-            console.log('guesses after push ', guesses)
-            writeGuesses(guesses)
+            if (guesses.findIndex((guess) => {
+                return guess.id === id
+            }) === -1) {
+                guesses.push({ id, value })
+                console.log('guesses after push ', guesses)
+                writeGuesses(guesses)
+            }
         }
     })
 }
 
 const consultRightAnswers = async () => {
     console.log('hola q tal?')
-    let answers = await axios.get('https://x-express-web.herokuapp.com/api/tests')
-    console.log(answers.data)
+    let tests = await axios.get('https://x-express-web.herokuapp.com/api/tests')
 
-    answers = answers.data.map((test) => {
-        return { id: test._id, value: test.value }
+    const answers = tests.data.map((test) => {
+        return { id: test._id, value: test.solution }
     })
+
+    console.log('answers to write: ', answers)
     writeAnswers(answers)
 }
 
@@ -41,7 +46,6 @@ const writeGuesses = (guesses) => {
     localStorage.setItem('guesses', JSON.stringify(guesses))
 }
 
-
 const readAnswers = () => {
     const answers = localStorage.getItem('answers')
     try {
@@ -50,30 +54,55 @@ const readAnswers = () => {
         return []
     }
 }
+
 const writeAnswers = (answers) => {
     localStorage.setItem('answers', JSON.stringify(answers))
 }
 
-console.log(readGuesses())
-
-const checkAnswers = () => {
-    const guesses = readGuesses()
-    const answers = readAnswers()
-
-
+const checkAnswers = async () => {
+    const guesses = await readGuesses()
+    const answers = await readAnswers()
+    let rights = 0
+    let wrongs = 0
+    guesses.forEach((item) => {
+        if (answers.findIndex((answer) => {
+            return answer.id === item.id
+        }) > -1) {
+            rights++
+        } else {
+            wrongs++
+        }
+    })
+    return { rightAnswersNumber: rights, wrongAnswersNumber: wrongs, total: answers.length }
 }
 
 window.addEventListener('unload', (e) => {
     localStorage.clear()
+    for(let form of document.forms){
+        form.reset()
+    }
 })
 
 const showAnswersButton = document.querySelector('#verify')
 const answersModal = document.querySelector('#answersModal')
 const closeAnswersModal = document.querySelector('#answersModal span.close')
 
-showAnswersButton.addEventListener('click', (e) => {
+const rightAnswers = document.querySelector('#rightAnswers')
+const wrongAnswers = document.querySelector('#wrongAnswers')
+const score = document.querySelector('#score')
+
+showAnswersButton.addEventListener('click', async (e) => {
     e.preventDefault()
     console.log('modal button clicked')
+
+    const { rightAnswersNumber, wrongAnswersNumber, total } = await checkAnswers()
+    console.log('results:', rightAnswersNumber, wrongAnswersNumber, total)
+    const scoreNumber = (rightAnswersNumber ? (rightAnswersNumber - wrongAnswersNumber * .33) * 10 / total : 0).toFixed(2)
+
+    rightAnswers.textContent = rightAnswersNumber
+    wrongAnswers.textContent = wrongAnswersNumber
+    score.textContent = scoreNumber
+
     answersModal.classList.add('show')
 })
 

@@ -218,4 +218,20 @@ button {
   background-color: white;
 }
 
+.modal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+  margin: 0 auto;
+}
+.modal-info #rightAnswers,
+.modal-info #wrongAnswers,
+.modal-info #score {
+  background-color: lightblue;
+  border-radius: 32px;
+  padding: 12px;
+  margin: 4px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -4,3 +4,19 @@
 @use 'button';
 
 
+.modal-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    margin: 0 auto;
+
+    #rightAnswers,
+    #wrongAnswers,
+    #score {
+        background-color: lightblue;
+        border-radius: 32px;
+        padding: 12px;
+        margin:4px;
+    }
+}
