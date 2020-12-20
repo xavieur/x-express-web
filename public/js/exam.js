@@ -90,12 +90,20 @@ window.addEventListener('unload', (e) => {
 })
 
 const showAnswersButton = document.querySelector('#verify')
+const resetButton = document.querySelector('#reset')
 const answersModal = document.querySelector('#answersModal')
 const closeAnswersModal = document.querySelector('#answersModal span.close')
 
 const rightAnswers = document.querySelector('#rightAnswers')
 const wrongAnswers = document.querySelector('#wrongAnswers')
 const score = document.querySelector('#score')
+
+resetButton.addEventListener('click', (e) => {
+    localStorage.clear()
+    for(let form of document.forms){
+        form.reset()
+    }
+})
 
 showAnswersButton.addEventListener('click', async (e) => {
     e.preventDefault()
