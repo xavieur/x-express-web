@@ -234,4 +234,12 @@ button {
   margin: 4px;
 }
 
+.right-answer {
+  color: yellow;
+}
+
+.wrong-answer {
+  color: red;
+}
+
 /*# sourceMappingURL=style.css.map */

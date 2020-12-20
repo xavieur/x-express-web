@@ -64,12 +64,18 @@ const checkAnswers = async () => {
     const answers = await readAnswers()
     let rights = 0
     let wrongs = 0
-    guesses.forEach((item) => {
-        if (answers.findIndex((answer) => {
-            return answer.id === item.id
-        }) > -1) {
+    guesses.forEach((guess) => {
+        const answer = answers.find((answer) => {
+            return answer.id === guess.id
+        })
+        if (answer.value === guess.value) {
+            console.log('¡guess!', guess)
+            document.getElementById(guess.id).classList.add('right-answer')
             rights++
         } else {
+            console.log('wrong!', guess)
+            document.getElementById(guess.id).classList.add('wrong-answer')
+            /* document.querySelector(`#${guess.id} span`).classList.add('wrong-answer') */
             wrongs++
         }
     })
