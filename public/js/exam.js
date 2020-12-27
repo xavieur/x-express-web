@@ -54,6 +54,7 @@ const writeAnswers = (answers) => {
 const checkAnswers = async () => {
     const guesses = await readGuesses()
     const answers = await readAnswers()
+    console.log('checkAnswers', guesses, answers)
     let rights = 0
     let wrongs = 0
     guesses.forEach((guess) => {
