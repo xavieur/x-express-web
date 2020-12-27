@@ -1,0 +1,46 @@
+$primary: white;
+$secondary: rgb(0, 64, 128);
+$linkBackGroundColor: darkcyan;
+$familia: 'Noto Serif', sans-serif;
+
+form {
+    color: $primary;
+    border: 1px $linkBackGroundColor dotted;
+    border-radius: 32px;
+    padding: 16px;
+
+    p{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    label{
+        display:block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    input {
+        display: block;
+        border-radius: 16px;
+        padding: 16px;
+        font-size: 1em;
+    }
+
+    input[type=radio]{
+        display: inline;
+        margin-left: 32px;
+        margin-right: 1em;
+    }
+
+    textarea {
+        display: block;
+        padding: 16px;
+        border-radius: 16px;
+        font-size: 1.25em;
+        width: 40%;
+    }
+    button{
+        margin-top: 32px;
+    }
+}

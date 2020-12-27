@@ -34,6 +34,11 @@ const Test = mongoose.model('Test', new mongoose.Schema({
                 throw new Error('Solución no válida')
             }
         }
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
 }))
 

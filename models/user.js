@@ -2,80 +2,105 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jsonwebtoken = require('jsonwebtoken')
+const Test = require('./test')
 
 const userSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true,
         trim: true
     },
-    email:{
+    email: {
         type: String,
         unique: true,
         required: true,
         trim: true,
         lowercase: true,
-        validate(value){
-            if(!validator.isEmail(value)){
+        validate(value) {
+            if (!validator.isEmail(value)) {
                 throw new Error('Email no es válido')
             }
         }
     },
-    password:{
+    password: {
         type: String,
         required: true,
         trim: true,
         minlength: 8,
-        validate(value){
-            if(value.toLowerCase().includes('password')){
+        validate(value) {
+            if (value.toLowerCase().includes('password')) {
                 throw new Error('El password no debe contener password')
             }
         }
     },
-    age:{
+    age: {
         type: Number,
         default: 0,
-        validate(value){
-            if(value<0){
+        validate(value) {
+            if (value < 0) {
                 throw new Error('Edad debe ser un valor positivo')
             }
         }
     },
-    tokens:[
-        {token:{
-            type:String,
-            required:true
-        }}
-    ]
+    tokens: [{
+            token: {
+                type: String,
+                required: true
+            }
+        }]
 })
 
-userSchema.methods.generateAuthToken = async function(){
-    const user = this
-    const token = await jsonwebtoken.sign({_id: user._id.toString()}, 'estoessupersecreto', {expiresIn: '7 days'})
+userSchema.virtual('tasks', {
+    ref: 'Test',
+    localField: '_id',
+    foreignField: 'owner'
+})
 
-    user.tokens = user.tokens.concat({token:token})
+userSchema.methods.toJSON = function () {
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+}
+userSchema.methods.generateAuthToken = async function () {
+    const user = this
+    const token = await jsonwebtoken.sign({ _id: user._id.toString() }, 'estoessupersecreto', { expiresIn: '7 days' })
+
+    user.tokens = user.tokens.concat({ token })
     await user.save()
-    
+
     return token
 }
 
-userSchema.statics.findUserByCredentials = async (email, password)=>{
-    const user = await User.findOne({email: email})
-    if(!user){
+userSchema.statics.findUserByCredentials = async (email, password) => {
+    const user = await User.findOne({ email: email })
+    if (!user) {
         throw new Error('Email o password no válidos')
     }
+    
     const isOk = await bcrypt.compare(password, user.password)
-    if(!isOk){
+
+    if (!isOk) {
         throw new Error('Email o password no válidos')
     }
     return user
 }
 
-userSchema.pre('save', async function(next){
+userSchema.pre('save', async function (next) {
     const user = this
-    if(user.isModified('password')){
+    if (user.isModified('password')) {
         user.password = await bcrypt.hash(user.password, 8)
     }
+    next()
+})
+
+// Delete user tests when user is removed
+userSchema.pre('remove', async function (next) {
+    const user = this
+    await Test.deleteMany({ owner: user._id })
     next()
 })
 

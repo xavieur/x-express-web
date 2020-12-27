@@ -1,0 +1,114 @@
+$primary: white;
+$secondary: rgb(0, 64, 128);
+$linkBackGroundColor: darkcyan;
+$familia: 'Noto Serif',
+sans-serif;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+}
+
+body {
+    color: $primary;
+    background-color: $secondary;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Noto Serif', serif;
+
+    header {
+        width: 90%;
+        margin: auto;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            text-transform: uppercase;
+
+            h1 {
+                font-size: 3em;
+            }
+
+            a {
+                color: $primary;
+                font-weight: 300;
+            }
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                list-style-type: none;
+
+                li {
+                    margin-left: 20px;
+                    
+                    &:nth-child(1) {
+                        a{
+
+                            color: $secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        width: 90%;
+        margin: auto;
+
+        section {
+
+            a {
+                background-color: $linkBackGroundColor;
+            }
+
+            ul {
+                margin-left: 32px;
+            }
+
+            p {
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
+
+            h2 {
+                margin-bottom: 32px;
+                text-transform: capitalize;
+            }
+
+            button {
+                margin-top: 32px;
+            }
+
+            .post {
+                padding: 32px;
+                margin-bottom: 32px;
+                background-color: $linkBackGroundColor;
+                border-radius: 32px;
+            }
+
+            .section-head {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    footer {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        margin: 80px auto 20px;
+    }
+}

@@ -1,0 +1,104 @@
+$primary: white;
+$secondary: rgb(0, 64, 128);
+$colorModal: rgb(0, 64, 128);
+$familia: 'Noto Serif',
+sans-serif;
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+
+        /* plus */
+        position: relative;
+        border: 1px solid #888;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        animation-name: animateModalFromTop;
+        animation-duration: 0.4s;
+
+        /* Modal Header */
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #042404;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Modal Body */
+        .modal-body {
+            padding: 2px 16px;
+            color: $colorModal;
+        }
+
+        /* Modal Footer */
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #042404;
+            color: white;
+        }
+    }
+
+    /* The Close Button */
+    .close {
+        display: inline;
+        color: $primary;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: rgb(248, 197, 197);
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+/* keyframes */
+@keyframes animateModalFromTop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* JavaScript classList */
+.show{
+    display: block;
+}

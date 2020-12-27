@@ -1,0 +1,245 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  color: white;
+  background-color: #004080;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: "Noto Serif", serif;
+}
+body header {
+  width: 90%;
+  margin: auto;
+}
+body header nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+body header nav h1 {
+  font-size: 3em;
+}
+body header nav a {
+  color: white;
+  font-weight: 300;
+}
+body header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  list-style-type: none;
+}
+body header nav ul li {
+  margin-left: 20px;
+}
+body header nav ul li:nth-child(1) a {
+  color: #004080;
+}
+body main {
+  width: 90%;
+  margin: auto;
+}
+body main section a {
+  background-color: darkcyan;
+}
+body main section ul {
+  margin-left: 32px;
+}
+body main section p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+body main section h2 {
+  margin-bottom: 32px;
+  text-transform: capitalize;
+}
+body main section button {
+  margin-top: 32px;
+}
+body main section .post {
+  padding: 32px;
+  margin-bottom: 32px;
+  background-color: darkcyan;
+  border-radius: 32px;
+}
+body main section .section-head {
+  display: flex;
+  justify-content: space-between;
+}
+body footer {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  margin: 80px auto 20px;
+}
+
+form {
+  color: white;
+  border: 1px darkcyan dotted;
+  border-radius: 32px;
+  padding: 16px;
+}
+form p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+form label {
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+form input {
+  display: block;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 1em;
+}
+form input[type=radio] {
+  display: inline;
+  margin-left: 32px;
+  margin-right: 1em;
+}
+form textarea {
+  display: block;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 1.25em;
+  width: 40%;
+}
+form button {
+  margin-top: 32px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  /* Modal Content/Box */
+  /* The Close Button */
+}
+.modal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  /* plus */
+  position: relative;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animateModalFromTop;
+  animation-duration: 0.4s;
+  /* Modal Header */
+  /* Modal Body */
+  /* Modal Footer */
+}
+.modal .modal-content .modal-header {
+  padding: 2px 16px;
+  background-color: #042404;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.modal .modal-content .modal-body {
+  padding: 2px 16px;
+  color: #004080;
+}
+.modal .modal-content .modal-footer {
+  padding: 2px 16px;
+  background-color: #042404;
+  color: white;
+}
+.modal .close {
+  display: inline;
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.modal .close:hover,
+.modal .close:focus {
+  color: #f8c5c5;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* keyframes */
+@keyframes animateModalFromTop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+/* JavaScript classList */
+.show {
+  display: block;
+}
+
+button {
+  font-size: 1em;
+  padding: 16px;
+  border: 1px darkblue solid;
+  border-radius: 32px;
+  background-color: white;
+}
+
+.modal-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+  margin: 0 auto;
+}
+.modal-info #rightAnswers,
+.modal-info #wrongAnswers,
+.modal-info #score {
+  background-color: lightblue;
+  border-radius: 32px;
+  padding: 12px;
+  margin: 4px;
+}
+
+.right-answer {
+  color: orange;
+}
+
+.wrong-answer {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */
