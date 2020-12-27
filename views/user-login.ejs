@@ -1,0 +1,16 @@
+<%- include("./partials/header.ejs") %>
+
+<main>
+  <section>
+    <div class="between"><span class="h2">Log in</span><a href="/user-create/">New user</a></div>
+    <form id="user-form-login" action="/api/users" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button>Log in</button>
+    </form>
+  </section>
+</main>
+
+<%- include("./partials/footer.ejs") %>

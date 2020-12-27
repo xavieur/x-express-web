@@ -33,3 +33,18 @@
     display: flex;
     justify-content: space-between;
 }
+
+.between{
+    display: flex;
+    justify-content: space-between;
+
+    .h2{
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 32px;
+    }
+
+    a{
+        align-self: start;
+    }
+}

@@ -102,6 +102,14 @@ app.get('/interfaz', (req, res) => {
   res.render('interfaz', { title: 'Interacción con el servidor' });
 });
 
+app.get('/user-login', (req, res) => {
+  res.render('user-login', {title: 'Login'})
+})
+
+app.get('/user-create', (req, res) => {
+  res.render('user-create', { title: 'Create a new user' });
+});
+
 
 app.use(cors())
 app.use(express.json())
