@@ -7,7 +7,7 @@
     <% if (tests.length > 0) { %>
     <% tests.forEach((test) => { %>
     <form id="<%= test._id %>" action="">
-      <p><%= test.question %></p>
+      <div class="editable"><span><%= test.question %></span><a href="/test-edit/<%= test._id %>">edit</a></div>
       <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
       <input type="radio" name="<%= test._id %>" value="2"><span><%= test.answer2 %></span><br>
       <input type="radio" name="<%= test._id %>" value="3"><span><%= test.answer3 %></span><br>

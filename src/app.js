@@ -82,8 +82,20 @@ app.get('/test/create', (req, res) => {
   res.render('test-create', { title: 'Create a new test' });
 });
 
-app.get('/test/edit', (req, res) => {
-  res.render('test-edit', { title: 'Edit test' });
+app.get('/test-edit/:id', async (req, res) => {
+  const _id = req.params.id
+
+  try {
+    const test = await Test.findById(_id)
+
+    if (!test) {
+      return res.status(404).send()
+    }
+
+    res.render('test-edit', { title: 'Edit test', test });
+  } catch (e) {
+    res.status(500).send()
+  }
 });
 
 app.get('/interfaz', (req, res) => {
