@@ -20,7 +20,6 @@ const consultRightAnswers = async () => {
     const answers = tests.data.map((test) => {
         return { id: test._id, value: test.solution }
     })
-
     writeAnswers(answers)
 }
 
