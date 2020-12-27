@@ -90,7 +90,8 @@ const wrongAnswers = document.querySelector('#wrongAnswers')
 const score = document.querySelector('#score')
 
 resetButton.addEventListener('click', (e) => {
-    localStorage.clear()
+    /* localStorage.clear() */
+    localStorage.setItem('guesses', [])
     for(let form of document.forms){
         console.log('reset button -> form', form)
         form.classList.remove('right-answer', 'wrong-answer')
