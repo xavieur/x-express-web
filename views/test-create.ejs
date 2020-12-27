@@ -1,20 +1,20 @@
 <%- include("./partials/header.ejs") %>
-
-<div class="create-blog content">
-  <form id="test-form" action="/api/tests" method="POST">
-    <label for="question">Question:</label>
-    <textarea id="question" name="question" required rows="4" cols="70"></textarea>
-    <label for="answer1">Answer 1:</label>
-    <textarea id="answer1" name="answer1" required rows="4" cols="70"></textarea>
-    <label for="answer2">Answer 2:</label>
-    <textarea id="answer2" name="answer2" required rows="4" cols="70"></textarea>
-    <label for="answer3">Answer 3:</label>
-    <textarea id="answer3" name="answer3" required rows="4" cols="70"></textarea>
-    <label for="answer4">Answer 4:</label>
-    <textarea id="answer4" name="answer4" required rows="4" cols="70"></textarea>
-    <input type="submit" value="Crear test">
-  </form>
-</div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/request.js"></script>
+<main>
+    <section>
+        <h2>New test</h2>
+        <form id="test-form-create" action="/api/tests" method="POST">
+            <label for="question">Question:</label>
+            <textarea id="question" name="question" required rows="2" cols="70"></textarea>
+            <label for="answer1">Answer 1:</label>
+            <textarea id="answer1" name="answer1" required rows="2" cols="70"></textarea>
+            <label for="answer2">Answer 2:</label>
+            <textarea id="answer2" name="answer2" required rows="2" cols="70"></textarea>
+            <label for="answer3">Answer 3:</label>
+            <textarea id="answer3" name="answer3" required rows="2" cols="70"></textarea>
+            <label for="answer4">Answer 4:</label>
+            <textarea id="answer4" name="answer4" required rows="2" cols="70"></textarea>
+            <button>Create test</button>
+        </form>
+    </section>
+</main>
 <%- include("./partials/footer.ejs") %>

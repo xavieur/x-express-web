@@ -1,21 +1,45 @@
 <%- include("./partials/header.ejs") %>
 <main>
-  <section class="test content">
-    <h3>Cuestionario</h3>
+  <section>
+    <div class="section-head">
+      <h2>Cuestionario</h2><span><a href="/test/create">new test</a></span>
+    </div>
     <% if (tests.length > 0) { %>
-    <%   let form
-    tests.forEach((test) => { 
-      <form id="<%= test._id %>" action="">
-        <p><%= test.question %></p>
-        <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
-        <input type="radio" name="<%= test._id %>" value="2"><span><%= test.answer2 %></span><br>
-        <input type="radio" name="<%= test._id %>" value="3"><span><%= test.answer3 %></span><br>
-        <input type="radio" name="<%= test._id %>" value="4"><span><%= test.answer4 %></span><br>
-      </form>
+    <% tests.forEach((test) => { %>
+    <form id="<%= test._id %>" action="">
+      <p><%= test.question %></p>
+      <input type="radio" name="<%= test._id %>" value="1"><span><%= test.answer1 %></span><br>
+      <input type="radio" name="<%= test._id %>" value="2"><span><%= test.answer2 %></span><br>
+      <input type="radio" name="<%= test._id %>" value="3"><span><%= test.answer3 %></span><br>
+      <input type="radio" name="<%= test._id %>" value="4"><span><%= test.answer4 %></span><br>
+    </form>
     <% }) %>
     <% } else { %>
     <p>Las preguntas no están preparadas todavía.</p>
     <% } %>
+    <button id="reset">Intentar de nuevo</button>
+    <button id="verify">Verificar respuestas</button>
+    
+    <div id="answersModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Evaluación</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="modal-info"><span>Respuestas correctas:</span>
+          <span id="rightAnswers"></span></div>
+          <div class="modal-info"><span>Respuestas incorrectas:</span>
+          <span id="wrongAnswers"></span></div>
+          <div class="modal-info"><span>Puntuación sobre diez:</span>
+          <span id="score"></span></div>
+        </div>
+        <div class="modal-footer">
+          <h4>&copy; 2020</h4>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 
