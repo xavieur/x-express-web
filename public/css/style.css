@@ -218,7 +218,6 @@ button {
   background-color: white;
 }
 
-<<<<<<< HEAD
 .modal-info {
   display: flex;
   justify-content: space-between;
@@ -243,31 +242,4 @@ button {
   color: red;
 }
 
-||||||| merged common ancestors
-=======
-.modal-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 55%;
-  margin: 0 auto;
-}
-.modal-info #rightAnswers,
-.modal-info #wrongAnswers,
-.modal-info #score {
-  background-color: lightblue;
-  border-radius: 32px;
-  padding: 12px;
-  margin: 4px;
-}
-
-.right-answer {
-  color: lightcyan;
-}
-
-.wrong-answer {
-  color: red;
-}
-
->>>>>>> origin/master
 /*# sourceMappingURL=style.css.map */
