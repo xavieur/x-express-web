@@ -113,7 +113,6 @@ app.get('/user-create', (req, res) => {
   res.render('user-create', { title: 'Create a new user' });
 });
 
-
 app.use(cors())
 app.use(express.json())
 app.use('/api', postRouter)
@@ -124,4 +123,3 @@ app.use('/api', testRouter)
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
-

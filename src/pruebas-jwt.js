@@ -4,6 +4,8 @@ const payload = {_id: '123'}
 
 const secretKey = 'estoessupersecreto'
 
+const sk = process.env.JWT_KEY
+
 const firmar = async (payload, secretKey)=>{
     const jwt = await jsonwebtoken.sign(payload, secretKey, {expiresIn: '2 days'})
     console.log('firmando: ', jwt)
