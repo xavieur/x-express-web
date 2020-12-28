@@ -1,3 +1,5 @@
+/* interfaz */
+
 // const postRequest = document.querySelector('#post')
 const readRequests = document.querySelector('#readAll')
 const readRequest = document.querySelector('#read')

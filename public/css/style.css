@@ -90,6 +90,7 @@ form {
   border: 1px darkcyan dotted;
   border-radius: 32px;
   padding: 16px;
+  margin-bottom: 32px;
 }
 form p {
   margin-top: 16px;
@@ -251,13 +252,14 @@ button {
   display: flex;
   justify-content: space-between;
 }
-.between .h2 {
+.between a {
+  align-self: start;
+}
+
+span.h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 32px;
-}
-.between a {
-  align-self: start;
 }
 
 /*# sourceMappingURL=style.css.map */

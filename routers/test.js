@@ -1,10 +1,15 @@
 const express = require('express')
 const router = new express.Router()
 const Test = require('../models/test')
+const auth = require('../middleware/auth')
 
-router.post('/tests', async (req, res) => {
-    const test = new Test(req.body)
-
+router.post('/tests', auth, async (req, res) => {
+    // const test = new Test(req.body)
+    const test = new Test({
+        ...req.body,
+        owner: req.user._id
+    })
+    
     try {
         await test.save()
         res.redirect('/tests')
@@ -38,7 +43,7 @@ router.get('/tests/:id', async (req, res) => {
     }
 })
 
-router.patch('/tests/:id', async (req, res) => {
+router.patch('/tests/:id', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['question', 'answer1', 'answer2', 'answer3', 'answer4', 'solution']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -60,7 +65,7 @@ router.patch('/tests/:id', async (req, res) => {
     }
 })
 
-router.delete('/tests/:id', async (req, res) => {
+router.delete('/tests/:id', auth, async (req, res) => {
     try {
         const test = await Test.findByIdAndDelete(req.params.id)
 

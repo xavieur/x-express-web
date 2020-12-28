@@ -17,4 +17,21 @@
   </section>
 </main>
 
+<script>
+  const createForm = document.querySelector('#user-form-create')
+  createForm.addEventListener('submit', async(e) => {
+      e.preventDefault()
+      try {
+        const resultado = await axios.post('/api/users', { data:
+          {name: e.target.elements.name.value,
+          email: e.target.elements.email.value,
+          password: e.target.elements.password.value,
+          age: e.target.elements.age.value}
+        })
+      } catch (error) {
+        console.log(error)
+      }
+  })
+</script>
+
 <%- include("./partials/footer.ejs") %>

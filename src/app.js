@@ -10,7 +10,10 @@ const testRouter = require('../routers/test')
 const Test = require('../models/test')
 const Post = require('../models/post')
 
+const auth = require('../middleware/auth')
+
 const port = process.env.PORT
+
 
 // express app
 const app = express();
@@ -79,7 +82,7 @@ app.get('/tests', async (req, res) => {
 });
 
 app.get('/test/create', (req, res) => {
-  res.render('test-create', { title: 'Create a new test' });
+  res.render('test-create', { title: 'Create a new test'}); // owner: req.user
 });
 
 app.get('/test-edit/:id', async (req, res) => {

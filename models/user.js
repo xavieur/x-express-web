@@ -43,12 +43,12 @@ const userSchema = new mongoose.Schema({
         }
     },
     tokens: [{
-            token: {
-                type: String,
-                required: true
-            }
-        }]
-})
+        token: {
+            type: String,
+            required: true
+        }
+    }]
+}, {timestamps: true})
 
 userSchema.virtual('tests', {
     ref: 'Test',
@@ -65,9 +65,10 @@ userSchema.methods.toJSON = function () {
 
     return userObject
 }
+
 userSchema.methods.generateAuthToken = async function () {
     const user = this
-    const token = await jsonwebtoken.sign({ _id: user._id.toString() }, 'estoessupersecreto', { expiresIn: '7 days' })
+    const token = await jsonwebtoken.sign({ _id: user._id.toString() }, process.env.JWT_KEY, { expiresIn: '7 days' })
 
     user.tokens = user.tokens.concat({ token })
     await user.save()
@@ -80,7 +81,7 @@ userSchema.statics.findUserByCredentials = async (email, password) => {
     if (!user) {
         throw new Error('Email o password no válidos')
     }
-    
+
     const isOk = await bcrypt.compare(password, user.password)
 
     if (!isOk) {

@@ -1,3 +1,12 @@
+const getAuthToken = () => {
+    const AUTH_TOKEN = localStorage.getItem('auth-token')
+    console.log('exam.js', AUTH_TOKEN)
+    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
+    return AUTH_TOKEN
+}
+
+getAuthToken()
+
 for (let form of document.forms) {
     form.addEventListener('click', (e) => {
         const id = e.target.parentNode.id
@@ -74,8 +83,10 @@ const checkAnswers = async () => {
 }
 
 window.addEventListener('unload', (e) => {
-    localStorage.clear()
-    for(let form of document.forms){
+    // so as to not clear other things
+    localStorage.setItem('guesses', [])
+    localStorage.setItem('answers', [])
+    for (let form of document.forms) {
         form.reset()
     }
 })
@@ -92,7 +103,7 @@ const score = document.querySelector('#score')
 resetButton.addEventListener('click', (e) => {
     /* localStorage.clear() */
     localStorage.setItem('guesses', [])
-    for(let form of document.forms){
+    for (let form of document.forms) {
         console.log('reset button -> form', form)
         form.classList.remove('right-answer', 'wrong-answer')
         form.reset()
@@ -121,3 +132,42 @@ window.addEventListener('click', (e) => {
 closeAnswersModal.addEventListener('click', (e) => {
     answersModal.classList.remove('show')
 })
+
+
+
+const newTestLink = document.querySelector('#new-test')
+newTestLink.addEventListener('click', async (e) => {
+    e.preventDefault()
+    try {
+        console.log('new test link: antes', getAuthToken())
+        // const resultado = await axios.get('/test/create/')
+        const resultado = await axios.get('/test/create', {
+            headers: {
+                'Authorization': 'Bearer ' + getAuthToken()
+            }
+        })
+
+        console.log('new test link: después', resultado.headers['Authorization'])
+        console.log('new test link: config', resultado.config.headers['Authorization'])
+
+    } catch (error) {
+        console.log('error', error)
+    }
+    window.location.assign('/test/create')
+})
+
+
+/* axios.interceptors.response.use(function (response) {
+    // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
+    console.log('interceptor response', response)
+
+
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+}, function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+}); */

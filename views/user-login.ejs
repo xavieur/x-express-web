@@ -3,14 +3,92 @@
 <main>
   <section>
     <div class="between"><span class="h2">Log in</span><a href="/user-create/">New user</a></div>
-    <form id="user-form-login" action="/api/users" method="POST">
+    <form id="user-form-login">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required>
-      <button>Log in</button>
+      <button id="login">Log in</button>
     </form>
   </section>
+  <section>
+    <span class="h2">Log out</span>
+    <form id="user-form-logout">
+      <button id="logout">Log out</button>
+    </form>
+  </section>
+  <span class="h2">Log out all</span>
+  <form id="user-form-logout-all">
+    <button id="logoutall">Log out all</button>
+  </form>
+  </section>
 </main>
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const loginForm = document.querySelector('#user-form-login')
+  const logoutForm = document.querySelector('#user-form-logout')
+  const logoutAllForm = document.querySelector('#user-form-logout-all')
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('/api/users/login', {
+        email: e.target.elements.email.value,
+        password: e.target.elements.password.value
+      })
+
+      const AUTH_TOKEN = response.data.token
+      localStorage.setItem('auth-token', AUTH_TOKEN)
+      getAuthToken()
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
+  logoutForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('/api/users/logout')
+      localStorage.setItem('auth-token', '')
+      getAuthToken()
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
+  logoutAllForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('/api/users/logoutAll')
+      localStorage.setItem('auth-token', '')
+      getAuthToken()
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
+  const getAuthToken = () => {
+    const AUTH_TOKEN = localStorage.getItem('auth-token')
+    console.log('auth token from user-login.ejs', AUTH_TOKEN)
+    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
+  }
+
+  getAuthToken()
+  /* axios.interceptors.response.use(function (response) {
+    // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
+    console.log('interceptor response', response)
+
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  }, function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  }); */
+</script>
 
 <%- include("./partials/footer.ejs") %>

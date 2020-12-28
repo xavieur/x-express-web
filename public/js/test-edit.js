@@ -1,3 +1,10 @@
+const getAuthToken = () => {
+    const AUTH_TOKEN = localStorage.getItem('auth-token')
+    axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
+}
+
+getAuthToken()
+
 const testEditForm = document.querySelector('#test-form-edit')
 
 testEditForm.addEventListener('submit', async (e) => {
@@ -34,12 +41,12 @@ testEditForm.addEventListener('submit', async (e) => {
         if (solution) {
             update.solution = solution
         }
-        
+
 
         try {
             const resultado = await axios.patch(`/api/tests/${testID}`, update)
             console.log(resultado)
-            
+
         } catch (error) {
             console.log(error)
         }
@@ -50,7 +57,7 @@ testEditForm.addEventListener('submit', async (e) => {
         try {
             const resultado = await axios.delete(`/api/tests/${testID}`)
             console.log(resultado)
-            
+
         } catch (error) {
             console.log(error)
         }
