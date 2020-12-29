@@ -14,9 +14,10 @@ mongoose.connect(process.env.MONGODB_URL, {
 const User = require('../models/user')
 const Test = require('../models/test')
 
+
 const check_owner_from_test_1 = async () => {
     try {
-        const testA = await Test.findById('5fe9c2ab9a68263f3cd0fb90')
+        const testA = await Test.findById('5fbe14d087a71700177785d7')
         console.log('without populate:', testA.owner)
     } catch (error) {
         console.log(error)
@@ -37,6 +38,7 @@ const check_owner_from_test_2 = async () => {
 }
 
 check_owner_from_test_2()
+
 
 const check_tests_from_owner = async () => {
     try {

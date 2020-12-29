@@ -9,7 +9,7 @@ router.post('/tests', auth, async (req, res) => {
         ...req.body,
         owner: req.user._id
     })
-    
+
     try {
         await test.save()
         res.redirect('/tests')
@@ -18,20 +18,48 @@ router.post('/tests', auth, async (req, res) => {
     }
 })
 
-router.get('/tests', async (req, res) => {
+// GET /tests?solution=1&sortBy=question:asc&limit=10&skip=0
+router.get('/tests', auth, async (req, res) => {
     try {
-        const tests = await Test.find({})
-        res.send(tests)
+        // Option A:
+        // const tests = await Test.find({owner: req.user._id})
+        // res.send(tests)
+
+        // Option B:
+        // await req.user.populate({path:'tests', match}).execPopulate()
+        // res.send(req.user.tests)
+
+        const match = {}
+        const sort = {}
+        if (req.query.solution) {
+            match.solution = parseInt(req.query.solution)
+        }
+
+        if (req.query.sortBy) {
+            const parts = req.query.sortBy.split(':')
+            sort[parts[0]] = parts[1] === 'desc' ? -1: 1
+        }
+
+        await req.user.populate({
+            path: 'tests',
+            match,
+            options: {
+                limit: parseInt(req.query.limit),
+                skip: parseInt(req.query.skip),
+                sort
+            }
+        }).execPopulate()
+        res.send(req.user.tests)
     } catch (e) {
         res.status(500).send()
     }
 })
 
-router.get('/tests/:id', async (req, res) => {
+router.get('/tests/:id', auth, async (req, res) => {
     const _id = req.params.id
 
     try {
-        const test = await Test.findById(_id)
+        const test = await Test.findOne({ _id, owner: req.user._id })
 
         if (!test) {
             return res.status(404).send()
@@ -53,12 +81,17 @@ router.patch('/tests/:id', auth, async (req, res) => {
     }
 
     try {
-        const test = await Test.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+        const test = await Test.findOne({ _id: req.params.id, owner: req.user._id })
 
         if (!test) {
             return res.status(404).send()
         }
 
+        updates.forEach((update) => {
+            test[update] = req.body[update]
+        })
+        
+        await test.save()
         res.send(test)
     } catch (e) {
         res.status(400).send()
@@ -67,7 +100,7 @@ router.patch('/tests/:id', auth, async (req, res) => {
 
 router.delete('/tests/:id', auth, async (req, res) => {
     try {
-        const test = await Test.findByIdAndDelete(req.params.id)
+        const test = await Test.findOneAndDelete({ _id: req.params.id, owner: req.user._id })
 
         if (!test) {
             res.status(404).send()

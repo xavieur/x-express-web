@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Test = mongoose.model('Test', new mongoose.Schema({
+const testSchema = new mongoose.Schema({
     question: {
         type: String,
         required: true,
@@ -10,17 +10,17 @@ const Test = mongoose.model('Test', new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    }, 
+    },
     answer2: {
         type: String,
         required: true,
         trim: true
-    }, 
+    },
     answer3: {
         type: String,
         required: true,
         trim: true
-    }, 
+    },
     answer4: {
         type: String,
         required: true,
@@ -29,8 +29,8 @@ const Test = mongoose.model('Test', new mongoose.Schema({
     solution: {
         type: Number,
         required: true,
-        validate(value){
-            if(value<1 || value>4){
+        validate(value) {
+            if (value < 1 || value > 4) {
                 throw new Error('Solución no válida')
             }
         }
@@ -40,6 +40,8 @@ const Test = mongoose.model('Test', new mongoose.Schema({
         required: true,
         ref: 'User'
     }
-}))
+}, { timestamps: true })
+
+const Test = mongoose.model('Test', testSchema)
 
 module.exports = Test
