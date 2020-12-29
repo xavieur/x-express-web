@@ -14,49 +14,48 @@ const auth = require('../middleware/auth')
 
 const port = process.env.PORT
 
-
-// express app
-const app = express();
+// express server app
+const server = express();
 
 // listen for requests
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server listening to port ${port}`)
-});
+})
 
 // register view engine
-app.set('view engine', 'ejs');
+server.set('view engine', 'ejs');
 
 // middleware & static files
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }))
-app.use(morgan('dev'))
+server.use(express.static('public'));
+server.use(express.urlencoded({ extended: true }))
+server.use(morgan('dev'))
 
-app.use((req, res, next) => {
+server.use((req, res, next) => {
   console.log('new request made:');
   console.log('host: ', req.hostname);
   console.log('path: ', req.path);
   console.log('method: ', req.method);
   next();
-});
+})
 
-app.get('/', async (req, res) => {
+server.get('/', async (req, res) => {
   try {
     const posts = await Post.find({})
     res.render('index', { title: 'List of posts', posts: posts });
   } catch (e) {
     res.render('index', { title: 'List of posts', posts: [] });
   }
-});
+})
 
-app.get('/about', (req, res) => {
+server.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
-});
+})
 
-app.get('/post/create', (req, res) => {
+server.get('/post/create', (req, res) => {
   res.render('post-create', { title: 'Create a new post' });
-});
+})
 
-app.get('/post-edit/:id', async (req, res) => {
+server.get('/post-edit/:id', async (req, res) => {
   const _id = req.params.id
 
   try {
@@ -70,22 +69,22 @@ app.get('/post-edit/:id', async (req, res) => {
   } catch (e) {
     res.status(500).send()
   }
-});
+})
 
-app.get('/tests', async (req, res) => {
+server.get('/tests', async (req, res) => {
   try {
     const tests = await Test.find({})
     res.render('tests', { title: 'List of tests', tests: tests });
   } catch (e) {
     res.render('tests', { title: 'List of tests', tests: [] });
   }
-});
+})
 
-app.get('/test/create', (req, res) => {
+server.get('/test/create', (req, res) => {
   res.render('test-create', { title: 'Create a new test'}); // owner: req.user
-});
+})
 
-app.get('/test-edit/:id', async (req, res) => {
+server.get('/test-edit/:id', async (req, res) => {
   const _id = req.params.id
 
   try {
@@ -99,27 +98,27 @@ app.get('/test-edit/:id', async (req, res) => {
   } catch (e) {
     res.status(500).send()
   }
-});
+})
 
-app.get('/interfaz', (req, res) => {
+server.get('/interfaz', (req, res) => {
   res.render('interfaz', { title: 'Interacción con el servidor' });
-});
+})
 
-app.get('/user-login', (req, res) => {
+server.get('/user-login', (req, res) => {
   res.render('user-login', {title: 'Login'})
 })
 
-app.get('/user-create', (req, res) => {
+server.get('/user-create', (req, res) => {
   res.render('user-create', { title: 'Create a new user' });
-});
+})
 
-app.use(cors())
-app.use(express.json())
-app.use('/api', postRouter)
-app.use('/api', userRouter)
-app.use('/api', testRouter)
+server.use(cors())
+server.use(express.json())
+server.use('/api', postRouter)
+server.use('/api', userRouter)
+server.use('/api', testRouter)
 
 // 404 page
-app.use((req, res) => {
+server.use((req, res) => {
   res.status(404).render('404', { title: '404' });
-});
+})
