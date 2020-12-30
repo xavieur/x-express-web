@@ -81,7 +81,7 @@ server.get('/tests', async (req, res) => {
 })
 
 server.get('/test/create', (req, res) => {
-  res.render('test-create', { title: 'Create a new test'}); // owner: req.user
+  res.render('test-create', { title: 'Create a new test' }); // owner: req.user
 })
 
 server.get('/test-edit/:id', async (req, res) => {
@@ -105,7 +105,7 @@ server.get('/interfaz', (req, res) => {
 })
 
 server.get('/user-login', (req, res) => {
-  res.render('user-login', {title: 'Login'})
+  res.render('user-login', { title: 'Login' })
 })
 
 server.get('/user-create', (req, res) => {

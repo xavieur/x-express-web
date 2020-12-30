@@ -16,27 +16,40 @@
     </form>
   </section>
   <section>
-    <h2>subir avatar</h2>
-    <form action="/profile" method="post" enctype="multipart/form-data">
+    <span class="h2">Subir avatar</span>
+    <form action="/api/users/me/avatar" method="post" enctype="multipart/form-data">
       <input type="file" name="avatar" />
+      <button>Enviar</button>
     </form>
+  </section>
+  <span class="h2">Subir currículum en pdf / doc / docx</span>
+  <form action="/api/users/me/cv" method="post" enctype="multipart/form-data">
+    <input type="file" name="cv" />
+    <button>Enviar</button>
+  </form>
+  </section>
+  <section>
+    <img src="http://localhost:3000/api/users/5fea4956d40c19941ddb9172/avatar" alt="">
+    <p> <a href="http://localhost:3000/api/users/5fea4956d40c19941ddb9172/avatar">Ver avatar</a></p>
   </section>
 </main>
 
 <script>
   const createForm = document.querySelector('#user-form-create')
-  createForm.addEventListener('submit', async(e) => {
-      e.preventDefault()
-      try {
-        const resultado = await axios.post('/api/users', { data:
-          {name: e.target.elements.name.value,
+  createForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    try {
+      const resultado = await axios.post('/api/users', {
+        data: {
+          name: e.target.elements.name.value,
           email: e.target.elements.email.value,
           password: e.target.elements.password.value,
-          age: e.target.elements.age.value}
-        })
-      } catch (error) {
-        console.log(error)
-      }
+          age: e.target.elements.age.value
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
   })
 </script>
 
