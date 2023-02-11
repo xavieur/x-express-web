@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.20",
     "sass": "^1.29.0"
   }
 }
